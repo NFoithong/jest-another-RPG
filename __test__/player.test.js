@@ -43,3 +43,35 @@ test('gets inventory from player or returns false', () => {
 
     expect(player.getInventory()).toEqual(false);
 });
+
+//start with the getHealth() method. First, in Player.test.js, create a test to get information about the player's health
+test("gets player's health value", () => {
+    const player = new Player('Dave');
+
+    expect(player.getHealth()).toEqual(expect.stringContaining(player.health.toString()));
+});
+
+
+// getHealth() method, we're going to add another method to check if the player is alive.
+test('checks if player is alive or not', () => {
+    const player = new Player('Dave');
+
+    expect(player.isAlive()).toBeTruthy();
+
+    player.health = 0;
+
+    expect(player.isAlive()).toBeFalsy();
+});
+
+test("substracts from player's health", () => {
+    const player = new Player('Dave');
+    const oldHelath = player.health;
+
+    player.reduceHealth(5);
+
+    expect(player.health).toBe(oldHelath - 5);
+
+    player.reduceHealth(99999);
+
+    expect(player.health).toBe(0);
+});
