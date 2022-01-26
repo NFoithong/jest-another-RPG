@@ -65,11 +65,11 @@ test('checks if player is alive or not', () => {
 
 test("substracts from player's health", () => {
     const player = new Player('Dave');
-    const oldHelath = player.health;
+    const oldHealth = player.health;
 
     player.reduceHealth(5);
 
-    expect(player.health).toBe(oldHelath - 5);
+    expect(player.health).toBe(oldHealth - 5);
 
     player.reduceHealth(99999);
 
